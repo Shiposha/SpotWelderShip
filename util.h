@@ -5,8 +5,6 @@
 void SetDef_EEPROM();
 void pageInfo();
 void pageMain();
-void pagePID();
-void pageMotor();
 void debugVarPrint();
 
 //****************** MENU *******************
@@ -98,38 +96,10 @@ MENU Menu_Main[] =
   {"",       NULL,       NULL, NULL, NULL, NULL, pageInfo}, 
   {"",       Switch,       NULL, NULL, NULL, NULL, pageMain}, 
  // {"",       Switch,     NULL, NULL, NULL, NULL, pageSwitch},
-  {"",       TempSetup,  NULL, NULL, NULL, NULL, pagePID}, 
-  {"",       MotorSetup, NULL, NULL, NULL, NULL, pageMotor},
   {NULL}
 };
 
 ///Символы для LCD
-
-//рисует градуник
-byte grad[8] = 
-{
-  0b00100,
-  0b01010,
-  0b01010,
-  0b01010,
-  0b10001,
-  0b10101,
-  0b10001,
-  0b01110
-};
-
-//символ Цельсия
-byte degreesymbol[8] = 
-{
-  B01100,
-  B10010,
-  B10010,
-  B01100,
-  B00000,
-  B00000,
-  B00000,
-  B00000  
-};
 
 //символ выбранного меню
 byte menuselect[8] = 
@@ -144,63 +114,4 @@ byte menuselect[8] =
   0b00000
 };
 
-//символ включеноого нагревателя
-byte H_invert[8] = 
-{
-  0b01110,
-  0b01110,
-  0b01110,
-  0b00000,
-  0b01110,
-  0b01110,
-  0b01110,
-  0b11111
-};
-
-//символ включеноого мотора
-byte E_invert[8] = 
-{
-  0b01110,
-  0b00100,
-  0b01010,
-  0b01010,
-  0b01110,
-  0b01110,
-  0b01110,
-  0b11111
-};
-
-//=================== THERMISTOR TABLE =====================
-
-const short ThermistorTempTable[][2] PROGMEM = {
-   {100, 300},  
-   {111, 290},   
-   {121, 280},   
-   {134, 270},    
-   {150, 260},  
-   {170, 250},
-   {195, 240},
-   {218, 230},
-   {250, 220},
-   {285, 210},
-   {310, 200}, 
-   {350, 190},
-   {390, 180},
-   {435, 170},
-   {480, 160},
-   {535, 150},     
-   {585, 140},
-   {645, 130},
-   {690, 120},
-   {745, 110},
-   {787, 100},
-   {840, 90},
-   {875, 80},
-   {905, 70},
-   {930, 60},
-   {955, 50},
-   {975, 40},
-   {990, 30},
-   {1000, 20}
-};
 #endif

@@ -1,11 +1,30 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
+  #ifdef Debug
+  void SerialRead () 
+  {
+    switch (Serial.read()) 
+    {      
+      case 'w':
+        keyUp();
+        debugVarPrint();      
+        break;
+      case 's':
+        keyDown();
+        debugVarPrint();
+        break;
+      case 'a':
+        keySelect();
+        debugVarPrint();
+        break;
+    }
+  }
+  #endif
+
+
 void debugVarPrint() 
-{
-  Serial.print ("TempReacheState = ");
-  Serial.println (TempReacheState);
-  
+{ 
 
 /*
   Serial.print ("State[0].Value = ");
