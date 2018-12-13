@@ -18,4 +18,6 @@ void(* reboot) (void) = 0;
 
 bool BeepState = false; //флаг - матюгальника
 
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof(arr[0])) //для вычесления размеров структур
+
 #endif

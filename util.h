@@ -53,46 +53,22 @@ MENU Reset[] =
 
 
 //Установки температуры
-MENU TempSetup[] =  
+MENU WelderSetup[] =  
 {
-  {"<<<",             NULL,  NULL,NULL, NULL, NULL, NULL},//заголовок
-  {"SetTemp",         NULL,  2,   300,  180,  10,   NULL},//1
-  {"Temp corr",       NULL,  9,   5,    0,    14,   NULL},//2
-  {"PID P",           NULL,  2,   250,  100,  18,   NULL},//3
-  {"PID I",           NULL,  10,  100,  1,    22,   NULL},//4
-  {"PID D",           NULL,  10,  100,  10,   24,   NULL},//5
-  {"PID W",           NULL,  5,   10000,1500, 28,   NULL},//6
-  {NULL}
-};
-
-
-//Установки скорости моторов
-MENU MotorSetup[] =  
-{
-  {"<<<",             NULL,  NULL,NULL, NULL, NULL, NULL},//заголовок
-  {"Mtr Spd",         NULL,  2,   200,  50,   40,   NULL},//1
-  {"Mtr Drct",        NULL,  1,   1,    0,    44,   NULL},//2
-  {"Temp off",        NULL,  2,   100,  80,   48,   NULL},//3
-  {NULL}
-};
-
-//Основное меню
-MENU Switch[] =  
-{
-  {"<<<",           NULL,  NULL, NULL, NULL, NULL, NULL}, //заголовок 
-  {"Heat Start",    NULL,  1,    1,    0,    1,    NULL},// 1
-  {"Cool Start",    NULL,  1,    1,    0,    1,    NULL},// 2  
-  {"Reverse",       NULL,  1,    1,    0,    2,    NULL},// 3
-  {"Beep",          NULL,  1,    1,    0,    5,    NULL},// 4
-  {"Factory reset", Reset, NULL, NULL, NULL, NULL, NULL},// 5
+  {"<<<",              NULL,  NULL, NULL, NULL, NULL, NULL},//заголовок
+  {"Pulse duration:",  NULL,  2,    300,  180,  10,   NULL},//1
+  {"Pulses number:",   NULL,  9,    5,    0,    14,   NULL},//2
+  {"Shift time:",      NULL,  2,    250,  100,  18,   NULL},//3
+  {"Beep",             NULL,  1,    1,    0,    5,    NULL},//4
+  {"Factory reset",    Reset, NULL, NULL, NULL, NULL, NULL},//5
   {NULL}
 };
 
 //Информация
 MENU Menu_Main[] =  
 {
-  {"",       NULL,   NULL, NULL, NULL, NULL, pageInfo}, 
-  {"",       Switch, NULL, NULL, NULL, NULL, pageMain}, 
+  {"",       NULL,        NULL, NULL, NULL, NULL, pageInfo}, 
+  {"",       WelderSetup, NULL, NULL, NULL, NULL, pageMain}, 
   {NULL}
 };
 

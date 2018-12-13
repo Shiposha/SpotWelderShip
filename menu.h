@@ -48,7 +48,7 @@ void printMenu()
       //рисуем треугольник выделенного меню
       lcd.setCursor(0, MenuDrawPos);
       if (MenuEdit == 1) lcd.blink();
-      else {lcd.write(byte(2)); lcd.noBlink();}     
+      else {lcd.write(byte(0)); lcd.noBlink();}     
   }
 
 // ВЫВОД ИНФОРМАЦИИ НА LCD
@@ -65,15 +65,15 @@ void pageMain()
       lcd.clear();
         
 //отображаем символы
-      lcd.setCursor(13, 0);      
-      if (Switch[1].Value) lcd.write(byte(3));     
-      else lcd.print("H");      
+      // lcd.setCursor(13, 0);      
+      // if (Switch[1].Value) lcd.write(byte(3));     
+      // else lcd.print("H");      
 
-      if (Switch[1].Value || Switch[2].Value) lcd.write(byte(4));
-      else lcd.print("M");
+      // if (Switch[1].Value || Switch[2].Value) lcd.write(byte(4));
+      // else lcd.print("M");
       
-      if (Switch[3].Value) lcd.print("<");
-      else lcd.print(">");            
+      // if (Switch[3].Value) lcd.print("<");
+      // else lcd.print(">");            
     }
 
 #endif    

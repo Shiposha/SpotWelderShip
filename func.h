@@ -25,15 +25,6 @@ void UpdateEeprom()
   EEPROM.put(CurrentMenu[MenuNowPos].EepromAdrr, CurrentMenu[MenuNowPos].Value);    
 }
 
-//set Switches
-void Set_Switch(byte Size, bool off)
-{
-  for(byte i=1; i<Size; i++)
-  {
-    if (Switch[i].Type) Switch[i].Value = off;
-  }
-}
-
 //set Value
 void setValue(byte setVal_size, struct Menu_Struct* setVal)
 {
@@ -133,8 +124,6 @@ void keySelect() {
         CountSizeMenu(CurrentMenu[MenuNowPos].submenu); //размер меню
         MenuNowPos = 0; //0 - название меню, 1 - 1й пункт меню
         MenuDrawPos = 0; //ставим курсор на 1й пунка
-
-
       }
       else if (CurrentMenu[MenuNowPos].submenu && !MenuNowPos)
       {
@@ -159,10 +148,10 @@ void Menu_Beep()
 {
   if (CurrentMenu==Menu_Main && CurrentMenu[0].handler) CurrentMenu[MenuNowPos].handler();
   else printMenu();   
-  if (Switch[4].Value) Beep(0,10); //матюгальник      
+  if (WelderSetup[4].Value) Beep(0,10); //матюгальник      
 }
 
-void Buttons()
+void Buttons_Scan()
 {
   if (Select_Button.pressed()) {keySelect(); Menu_Beep();}
   if (Up_Button.pressed()) {keyUp(); Menu_Beep();}
