@@ -5,13 +5,14 @@
 void SetDef_EEPROM();
 void pageInfo();
 void pageMain();
+void printMenu();
 void debugVarPrint();
 
 //****************** MENU *******************
-double IncDec[] = 
+double IncDec[] =  //it is for Type from Menu_Struct 
   { 
       0, // 0 
-      1, // 1 boolean
+      1, // 1
       1, // 2 
      10, // 3
      60, // 4 
@@ -34,15 +35,15 @@ typedef struct Menu_Struct
 {
   char *Name; //имя меню
   struct Menu_Struct *submenu; //подменю данного элемента
-  uint8_t Type;
-  int Range;
-  double Value;
+  uint8_t Type;  //increment decrement form IncDec Structure
+  int Range;     // 
+  double Value;  //default value
   uint8_t EepromAdrr;
   void (*handler)(); //обработчик входа в меню (можем не иметь подменю но вызвать ф-цию)  
 } MENU;
 
 
-//Установки
+//Factory setting
 MENU Reset[] =  
 {
   {"Are You Shure?",  NULL,  NULL, NULL, NULL, NULL, NULL},//заголовок
@@ -61,9 +62,6 @@ MENU TempSetup[] =
   {"PID I",           NULL,  10,  100,  1,    22,   NULL},//4
   {"PID D",           NULL,  10,  100,  10,   24,   NULL},//5
   {"PID W",           NULL,  5,   10000,1500, 28,   NULL},//6
-#ifdef Pid_Autotune  
-  {"PID Auto",        NULL,  1,   1,    0,    32,   NULL},//7 
-#endif    
   {NULL}
 };
 
@@ -93,14 +91,12 @@ MENU Switch[] =
 //Информация
 MENU Menu_Main[] =  
 {
-  {"",       NULL,       NULL, NULL, NULL, NULL, pageInfo}, 
-  {"",       Switch,       NULL, NULL, NULL, NULL, pageMain}, 
- // {"",       Switch,     NULL, NULL, NULL, NULL, pageSwitch},
+  {"",       NULL,   NULL, NULL, NULL, NULL, pageInfo}, 
+  {"",       Switch, NULL, NULL, NULL, NULL, pageMain}, 
   {NULL}
 };
 
 ///Символы для LCD
-
 //символ выбранного меню
 byte menuselect[8] = 
 {

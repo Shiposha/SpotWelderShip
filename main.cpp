@@ -14,6 +14,7 @@
 #include "util.h" //загружаем меню 
 #include "init.h" //пины
 #include "func.h"
+#include "menu.h"
 #include "debug.h"
 
 void setup() {
